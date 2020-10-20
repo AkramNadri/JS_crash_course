@@ -1,1 +1,3 @@
-console.log("hello world")
+const s = 'hello world';
+
+console.log(s.toUpperCase());
