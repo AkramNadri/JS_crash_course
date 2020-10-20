@@ -152,3 +152,76 @@ const todoCompleted = todos.filter(function(todo){
 })
 
 console.log(todoCompleted);
+
+
+
+
+// Conditionals 
+
+const x = 4;
+const y = 10;
+
+// will just check datatype
+if(x == 1){
+    console.log('x is 10');
+}
+
+// match dataype and value 
+if(x === 10){
+    console.log('x is 10');
+} else if(x > 10) {
+    console.log('x is greather then 10');
+} else {
+    console.log('x is less than 10');
+}
+
+
+//   Or || only one condition needs to be true
+if(x > 5 || y > 10){
+    console.log('x is more then 5 or y is more then 10');
+} 
+
+
+//   And && both conditions must be true
+if(x > 5 && y > 10){
+    console.log('x is more then 5 or y is more then 10');
+} 
+
+// Ternary operator - ? Than, if color = z is > 10 THAN ...
+
+const z = 11;
+const color = z >= 10 ? 'red' : 'blue';
+
+console.log(color);
+
+
+switch(color){
+
+    case 'red':
+        console.log('color is red');
+        break;
+
+    case 'blue':
+        console.log('color is blue');
+        break;
+    
+    default:
+        console.log('color is not Red or Blue');
+        break;
+}
+
+
+// Functions
+
+function addNums(num1, num2){
+    return num1 + num2;
+
+}
+
+console.log(addNums(2,3));
+
+const addNums2 = (num1, num2) => {
+    return num1 + num2;
+}
+
+console.log(addNums2(6,4));
