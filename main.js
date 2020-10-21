@@ -292,22 +292,37 @@
 // Classes were added to ES6
 // Class
 
-class Person1 {
+// class Person {
 
-    constructor(firstName, lastName, Dob){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.Dob = new Date(Dob);
-    }
+//     constructor(firstName, lastName, Dob){
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.Dob = new Date(Dob);
+//     }
 
-    getBirthYear(){
-        return this.Dob.getFullYear();
-    }
+//     getBirthYear(){
+//         return this.Dob.getFullYear();
+//     }
 
-    getFullName(){
-        return `${this.firstName} ${this.lastName}`;
-    }
-}
+//     getFullName(){
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+// }
 
-const person1 = new Person('Akram', 'Nadri', '5-1-1984');
-const person2 = new Person('Pardis', 'Honarvar', '5-1-1988');
+// // Instantiate object
+// const person1 = new Person('Akram', 'Nadri', '5-1-1984');
+// const person2 = new Person('Pardis', 'Honarvar', '5-1-1988');
+
+
+// console.log(person1.getBirthYear());
+// console.log(person2.getFullName());
+
+
+
+
+
+// DOM
+
+
+
+
