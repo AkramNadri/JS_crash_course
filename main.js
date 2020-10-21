@@ -65,223 +65,249 @@
 
 
 
-// 
+// // 
 
-const todos = [
+// const todos = [
 
-    {
-    id: 1,
-    text: 'take out the trash',
-    isCompleted: true
-    },  
-    {
-    id: 2,
-    text: 'Meeting with boss',
-    isCompleted: true
-    },  
-    {
-    id: 3,
-    text: 'dentist appointment',
-    isCompleted: false
+//     {
+//     id: 1,
+//     text: 'take out the trash',
+//     isCompleted: true
+//     },  
+//     {
+//     id: 2,
+//     text: 'Meeting with boss',
+//     isCompleted: true
+//     },  
+//     {
+//     id: 3,
+//     text: 'dentist appointment',
+//     isCompleted: false
+//     }
+// ];
+
+// // console.log(todos);
+
+// // console.log(todos[1]);
+
+// // const todoJSON = JSON.stringify(todos);
+// // console.log(todoJSON);
+
+
+// // For loop
+
+// for(let i = 0; i <= 10; i++){
+
+
+//     // backticks are used here
+//     console.log(`For loop number: ${i}`);
+
+// }
+
+
+// // While loop
+
+// let i = 0;
+// while(i < 10) {
+
+//     console.log(`While loop number: ${i}`);
+//     i++;
+// }
+
+
+// // For Of loop
+
+// for (let todo of todos){
+// console.log(todo);
+
+// }
+
+
+// // High Order Array Methods
+
+// // forEach - loops through
+
+// todos.forEach(function(todo){
+
+//     console.log(todo.text);
+    
+// });
+
+// // Map - allow us to create a new Array from an Array 
+
+// const todoText = todos.map(function(todo){
+//     return todo.text;
+
+// });
+
+// console.log(todoText);
+
+
+// // Filter - create a new Array based on a condition
+
+// const todoCompleted = todos.filter(function(todo){
+//     return todo.isCompleted === true;
+// }).map(function(todo){
+//     return todo.text;
+// })
+
+// console.log(todoCompleted);
+
+
+
+
+// // Conditionals 
+
+// const x = 4;
+// const y = 10;
+
+// // will just check datatype
+// if(x == 1){
+//     console.log('x is 10');
+// }
+
+// // match dataype and value 
+// if(x === 10){
+//     console.log('x is 10');
+// } else if(x > 10) {
+//     console.log('x is greather then 10');
+// } else {
+//     console.log('x is less than 10');
+// }
+
+
+// //   Or || only one condition needs to be true
+// if(x > 5 || y > 10){
+//     console.log('x is more then 5 or y is more then 10');
+// } 
+
+
+// //   And && both conditions must be true
+// if(x > 5 && y > 10){
+//     console.log('x is more then 5 or y is more then 10');
+// } 
+
+// // Ternary operator - ? Than, if color = z is > 10 THAN ...
+
+// const z = 10;
+// const color = z >= 10 ? 'red' : 'blue';
+
+// console.log(color);
+
+
+// switch(color){
+
+//     case 'red':
+//         console.log('color is red');
+//         break;
+
+//     case 'blue':
+//         console.log('color is blue');
+//         break;
+    
+//     default:
+//         console.log('color is not Red or Blue');
+//         break;
+// }
+
+
+// // Functions
+
+// function addNums(num1, num2){
+//     return num1 + num2;
+
+// }
+
+// console.log(addNums(2,3));
+
+// const addNums2 = (num1, num2) => {
+//     return num1 + num2;
+// }
+
+// console.log(addNums2(6,4));
+
+
+
+// // Can use => in one line without return or curly braces
+// const addNums3 = (num1 = 1, num2 = 1) => num1 + num2;
+// console.log(addNums3(3, 3));
+
+
+
+
+// const addNums4 = num1 =>num1 + 5;
+// console.log(addNums4(2));
+
+
+
+// // OBJECT ORIENTED PROGRAMMING - ES5
+
+// // Constructor function
+
+// function Person(firstName, lastName, Dob){
+
+//     // Create objects
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.Dob = new Date(Dob);
+//     this.getBirthYear = function() {
+//         return this.Dob.getFullYear();
+//     }
+
+//     this.getFullName = function(){
+//         // use template literal here
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+// }
+
+// // Using Prototype
+// Person.prototype.getBirthYear = function() {
+//     return this.Dob.getBirthYear();
+// }
+
+// // using ${} for multiple 
+// Person.prototype.getFullName = function() {
+//     return `${this.firstName} ${this.lastName}`;
+
+// }
+
+// // Instantiate object
+
+// const person1 = new Person('Akram', 'Nadri', '5-1-1984');
+// const person2 = new Person('Pardis', 'Honarvar', '5-1-1988');
+
+// console.log(person1);
+// console.log(person2.firstName);
+// console.log(person2.Dob);
+// console.log(person1.getBirthYear());
+
+// console.log(person1.getFullName());
+
+// // Console.log Prototype
+
+// console.log(person2.getFullName());
+
+
+/******************************************************/
+// Classes were added to ES6
+// Class
+
+class Person1 {
+
+    constructor(firstName, lastName, Dob){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.Dob = new Date(Dob);
     }
-];
 
-// console.log(todos);
-
-// console.log(todos[1]);
-
-// const todoJSON = JSON.stringify(todos);
-// console.log(todoJSON);
-
-
-// For loop
-
-for(let i = 0; i <= 10; i++){
-
-
-    // backticks are used here
-    console.log(`For loop number: ${i}`);
-
-}
-
-
-// While loop
-
-let i = 0;
-while(i < 10) {
-
-    console.log(`While loop number: ${i}`);
-    i++;
-}
-
-
-// For Of loop
-
-for (let todo of todos){
-console.log(todo);
-
-}
-
-
-// High Order Array Methods
-
-// forEach - loops through
-
-todos.forEach(function(todo){
-
-    console.log(todo.text);
-    
-});
-
-// Map - allow us to create a new Array from an Array 
-
-const todoText = todos.map(function(todo){
-    return todo.text;
-
-});
-
-console.log(todoText);
-
-
-// Filter - create a new Array based on a condition
-
-const todoCompleted = todos.filter(function(todo){
-    return todo.isCompleted === true;
-}).map(function(todo){
-    return todo.text;
-})
-
-console.log(todoCompleted);
-
-
-
-
-// Conditionals 
-
-const x = 4;
-const y = 10;
-
-// will just check datatype
-if(x == 1){
-    console.log('x is 10');
-}
-
-// match dataype and value 
-if(x === 10){
-    console.log('x is 10');
-} else if(x > 10) {
-    console.log('x is greather then 10');
-} else {
-    console.log('x is less than 10');
-}
-
-
-//   Or || only one condition needs to be true
-if(x > 5 || y > 10){
-    console.log('x is more then 5 or y is more then 10');
-} 
-
-
-//   And && both conditions must be true
-if(x > 5 && y > 10){
-    console.log('x is more then 5 or y is more then 10');
-} 
-
-// Ternary operator - ? Than, if color = z is > 10 THAN ...
-
-const z = 10;
-const color = z >= 10 ? 'red' : 'blue';
-
-console.log(color);
-
-
-switch(color){
-
-    case 'red':
-        console.log('color is red');
-        break;
-
-    case 'blue':
-        console.log('color is blue');
-        break;
-    
-    default:
-        console.log('color is not Red or Blue');
-        break;
-}
-
-
-// Functions
-
-function addNums(num1, num2){
-    return num1 + num2;
-
-}
-
-console.log(addNums(2,3));
-
-const addNums2 = (num1, num2) => {
-    return num1 + num2;
-}
-
-console.log(addNums2(6,4));
-
-
-
-// Can use => in one line without return or curly braces
-const addNums3 = (num1 = 1, num2 = 1) => num1 + num2;
-console.log(addNums3(3, 3));
-
-
-
-
-const addNums4 = num1 =>num1 + 5;
-console.log(addNums4(2));
-
-
-
-// OBJECT ORIENTED PROGRAMMING
-
-// Constructor function
-
-function Person(firstName, lastName, Dob){
-
-    // Create objects
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.Dob = new Date(Dob);
-    this.getBirthYear = function() {
+    getBirthYear(){
         return this.Dob.getFullYear();
     }
 
-    this.getFullName = function(){
-        // use template literal here
+    getFullName(){
         return `${this.firstName} ${this.lastName}`;
     }
 }
 
-// Using Prototype
-Person.prototype.getBirthYear = function() {
-    return this.Dob.getBirthYear();
-}
-
-Person.prototype.getFullName = function() {
-    return `${this.firstName} ${this.lastName}`;
-
-}
-
-// Instantiate object
-
 const person1 = new Person('Akram', 'Nadri', '5-1-1984');
 const person2 = new Person('Pardis', 'Honarvar', '5-1-1988');
-
-console.log(person1);
-console.log(person2.firstName);
-console.log(person2.Dob);
-console.log(person1.getBirthYear());
-
-console.log(person1.getFullName());
-
-// Console.log Prototype
-
-console.log(person2.getFullName());
