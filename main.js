@@ -1,328 +1,376 @@
-// const name = 'Akram, Pardis, Ak, P';
-// const age = '36';
+// ATTENTION: THIS IS CODE FROM THE YOUTUBE CRASH COURSE. IT IS NOT MEANT TO RUN, IT IS JUST FOR LEARNING PURPOSES //
 
-// console.log(name);
-// console.log(age);
+// LOGGING OUTPUT
+alert('Hello World'); // Do not use for debugging. Stops script and only strings
+console.log('Hello World');
+console.error('This is an error');
+console.warn('This is a warning');
 
-// console.log('Hi my name is ' + name + ' and i am ' + age + ' years old' );
 
-// console.log(name.toUpperCase());
+// VARIABLES - var, let, const
+let age = 30;
 
+// let can be re-assigned, const can not
+age = 31;
 
-// console.log(age.length);
 
-// console.log(name.split(','));
+// DATA TYPES - String, Number, Boolean, null, undefined
+const name = 'Brad';
+const age = 37;
+const rating = 3.5;
+const isCool = true;
+const x = null;
+const y = undefined;
+let z; // undefined
+
+// Check type
+console.log(typeof z);
+
 
+// STRINGS
 
-// // Arrays - variables that hold multiple values
+// Concatenation
+console.log('My name is ' + name + ' and I am ' + age);
+// Template literal (better)
+console.log(`My name is ${name} and I am ${age}`);
 
-// const fruits = new Array('apple, banana, mango');
+// String methods & properties
+const s = 'Hello World';
+let val;
+// Get length
+val = s.length;
+// Change case
+val = s.toUpperCase();
+val = s.toLowerCase();
+// Get sub string
+val = s.substring(0, 5);
+// Split into array
+val = s.split('');
+
+
+
+// ARRAYS - Store multiple values in a variable
+const numbers = [1,2,3,4,5];
+const fruits = ['apples', 'oranges', 'pears', 'grapes'];
+console.log(numbers, fruit);
 
-// fruits[1] = 'pear';
+// Get one value - Arrays start at 0
+console.log(fruits[1]);
 
-// fruits.push('orange');
+// Add value
+fruits[4] = 'blueberries';
+
+// Add value using push()
+fruits.push('strawberries');
 
-// fruits.values();
+// Add to beginning
+fruits.unshift('mangos');
+
+// Remove last value
+fruits.pop();
 
-// console.log(fruits);
+// // Check if array
+console.log(Array.isArray(fruits));
+
+// // Get index
+console.log(fruits.indexOf('oranges'));
 
-// console.log(fruits[0]); 
 
-// // check to see if something is an array
-// console.log(Array.isArray(fruits));
 
-// console.log(fruits.indexOf('apple'));
+// OBJECT LITERALS
+const person = {
+  firstName: 'John',
+  age: 30,
+  hobbies: ['music', 'movies', 'sports'],
+  address: {
+    street: '50 Main st',
+    city: 'Boston',
+    state: 'MA'
+  }
+}
 
+// Get single value
+console.log(person.name)
 
+// Get array value
+console.log(person.hobbies[1]);
 
-// // Object Literals
+// Get embedded object
+console.log(person.address.city);
+
+// Add property
+person.email = 'jdoe@gmail.com';
+
+// Array of objects
+const todos = [
+  {
+    id: 1,
+    text: 'Take out trash',
+    isComplete: false
+  },
+  {
+    id: 2,
+    text: 'Dinner with wife',
+    isComplete: false
+  },
+  {
+    id: 3,
+    text: 'Meeting with boss',
+    isComplete: true
+  }
+];
+
+// Get specific object value
+console.log(todos[1].text);
+
+// Format as JSON
+console.log(JSON.stringify(todos));
+
+
+// LOOPS
+
+// For
+for(let i = 0; i <= 10; i++){
+  console.log(`For Loop Number: ${i}`);
+}
+
+// While
+let i = 0
+while(i <= 10) {
+  console.log(`While Loop Number: ${i}`);
+  i++;
+}
+
+// Loop Through Arrays
+// For Loop
+for(let i = 0; i < todos.length; i++){
+  console.log(` Todo ${i + 1}: ${todos[i].text}`);
+}
+
+// For...of Loop
+for(let todo of todos) {
+  console.log(todo.text);
+}
+
+
+// HIGH ORDER ARRAY METHODS (show prototype)
+
+// forEach() - Loops through array
+todos.forEach(function(todo, i, myTodos) {
+  console.log(`${i + 1}: ${todo.text}`);
+  console.log(myTodos);
+});
+
+// map() - Loop through and create new array
+const todoTextArray = todos.map(function(todo) {
+  return todo.text;
+});
+
+console.log(todoTextArray);
+
+// filter() - Returns array based on condition
+const todo1 = todos.filter(function(todo) {
+  // Return only todos where id is 1
+  return todo.id === 1; 
+});
+
+
+// CONDITIONALS
+
+// Simple If/Else Statement
+const x = 30;
+
+if(x === 10) {
+  console.log('x is 10');
+} else if(x > 10) {
+  console.log('x is greater than 10');
+} else {
+  console.log('x is less than 10')
+}
+
+// Switch
+color = 'blue';
+
+switch(color) {
+  case 'red':
+    console.log('color is red');
+  case 'blue':
+    console.log('color is blue');
+  default:  
+    console.log('color is not red or blue')
+}
+
+// Ternary operator / Shorthand if
+const z = color === 'red' ? 10 : 20;
+
+
+
+// FUNCTIONS
+function greet(greeting = 'Hello', name) {
+  if(!name) {
+    // console.log(greeting);
+    return greeting;
+  } else {
+    // console.log(`${greeting} ${name}`);
+    return `${greeting} ${name}`;
+  }
+}
+
+
+// ARROW FUNCTIONS
+const greet = (greeting = 'Hello', name = 'There') => `${greeting} ${name}`;
+console.log(greet('Hi'));
+
+
+// OOP
+
+// Constructor Function
+function Person(firstName, lastName, dob) {
+  // Set object properties
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.dob = new Date(dob); // Set to actual date object using Date constructor
+  // this.getBirthYear = function(){
+  //   return this.dob.getFullYear();
+  // }
+  // this.getFullName = function() {
+  //   return `${this.firstName} ${this.lastName}`
+  // }
+}
+
+// Get Birth Year
+Person.prototype.getBirthYear = function () {
+  return this.dob.getFullYear();
+}
+
+// Get Full Name
+Person.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`
+}
+
+
+// Instantiate an object from the class
+const person1 = new Person('John', 'Doe', '7-8-80');
+const person2 = new Person('Steve', 'Smith', '8-2-90');
+
+console.log(person2);
 
-// const person = {
-//     firstName: 'Akram',
-//     lastName: 'Nadri',
-//     age: 36,
-//     hobbies: ['basketball', 'programming'],
-//     address: {
-//         street: 'Solaris',
-//         city: 'Ottawa',
-//         province: 'Ontario'
-//     }
-// }
-
-// console.log(person);
-
-// console.log(person.hobbies[1]);
-
-// console.log(person.address.city);
-
-// const {firstName, lastName, address: {city}} = person;
-
-// console.log(firstName);
-
-// person.email = 'Ak@gmail.com';
-
-// console.log(person);
-
-
-
-// // 
-
-// const todos = [
-
-//     {
-//     id: 1,
-//     text: 'take out the trash',
-//     isCompleted: true
-//     },  
-//     {
-//     id: 2,
-//     text: 'Meeting with boss',
-//     isCompleted: true
-//     },  
-//     {
-//     id: 3,
-//     text: 'dentist appointment',
-//     isCompleted: false
-//     }
-// ];
-
-// // console.log(todos);
-
-// // console.log(todos[1]);
-
-// // const todoJSON = JSON.stringify(todos);
-// // console.log(todoJSON);
-
-
-// // For loop
-
-// for(let i = 0; i <= 10; i++){
-
-
-//     // backticks are used here
-//     console.log(`For loop number: ${i}`);
-
-// }
-
-
-// // While loop
-
-// let i = 0;
-// while(i < 10) {
-
-//     console.log(`While loop number: ${i}`);
-//     i++;
-// }
-
-
-// // For Of loop
-
-// for (let todo of todos){
-// console.log(todo);
-
-// }
-
-
-// // High Order Array Methods
-
-// // forEach - loops through
-
-// todos.forEach(function(todo){
-
-//     console.log(todo.text);
-    
-// });
-
-// // Map - allow us to create a new Array from an Array 
-
-// const todoText = todos.map(function(todo){
-//     return todo.text;
-
-// });
-
-// console.log(todoText);
-
-
-// // Filter - create a new Array based on a condition
-
-// const todoCompleted = todos.filter(function(todo){
-//     return todo.isCompleted === true;
-// }).map(function(todo){
-//     return todo.text;
-// })
-
-// console.log(todoCompleted);
-
-
-
-
-// // Conditionals 
-
-// const x = 4;
-// const y = 10;
-
-// // will just check datatype
-// if(x == 1){
-//     console.log('x is 10');
-// }
-
-// // match dataype and value 
-// if(x === 10){
-//     console.log('x is 10');
-// } else if(x > 10) {
-//     console.log('x is greather then 10');
-// } else {
-//     console.log('x is less than 10');
-// }
-
-
-// //   Or || only one condition needs to be true
-// if(x > 5 || y > 10){
-//     console.log('x is more then 5 or y is more then 10');
-// } 
-
-
-// //   And && both conditions must be true
-// if(x > 5 && y > 10){
-//     console.log('x is more then 5 or y is more then 10');
-// } 
-
-// // Ternary operator - ? Than, if color = z is > 10 THAN ...
-
-// const z = 10;
-// const color = z >= 10 ? 'red' : 'blue';
-
-// console.log(color);
-
-
-// switch(color){
-
-//     case 'red':
-//         console.log('color is red');
-//         break;
-
-//     case 'blue':
-//         console.log('color is blue');
-//         break;
-    
-//     default:
-//         console.log('color is not Red or Blue');
-//         break;
-// }
-
-
-// // Functions
-
-// function addNums(num1, num2){
-//     return num1 + num2;
-
-// }
-
-// console.log(addNums(2,3));
-
-// const addNums2 = (num1, num2) => {
-//     return num1 + num2;
-// }
-
-// console.log(addNums2(6,4));
-
-
-
-// // Can use => in one line without return or curly braces
-// const addNums3 = (num1 = 1, num2 = 1) => num1 + num2;
-// console.log(addNums3(3, 3));
-
-
-
-
-// const addNums4 = num1 =>num1 + 5;
-// console.log(addNums4(2));
-
-
-
-// // OBJECT ORIENTED PROGRAMMING - ES5
-
-// // Constructor function
-
-// function Person(firstName, lastName, Dob){
-
-//     // Create objects
-//     this.firstName = firstName;
-//     this.lastName = lastName;
-//     this.Dob = new Date(Dob);
-//     this.getBirthYear = function() {
-//         return this.Dob.getFullYear();
-//     }
-
-//     this.getFullName = function(){
-//         // use template literal here
-//         return `${this.firstName} ${this.lastName}`;
-//     }
-// }
-
-// // Using Prototype
-// Person.prototype.getBirthYear = function() {
-//     return this.Dob.getBirthYear();
-// }
-
-// // using ${} for multiple 
-// Person.prototype.getFullName = function() {
-//     return `${this.firstName} ${this.lastName}`;
-
-// }
-
-// // Instantiate object
-
-// const person1 = new Person('Akram', 'Nadri', '5-1-1984');
-// const person2 = new Person('Pardis', 'Honarvar', '5-1-1988');
-
-// console.log(person1);
-// console.log(person2.firstName);
-// console.log(person2.Dob);
 // console.log(person1.getBirthYear());
-
 // console.log(person1.getFullName());
 
-// // Console.log Prototype
-
-// console.log(person2.getFullName());
 
 
-/******************************************************/
-// Classes were added to ES6
-// Class
-
-// class Person {
-
-//     constructor(firstName, lastName, Dob){
-//         this.firstName = firstName;
-//         this.lastName = lastName;
-//         this.Dob = new Date(Dob);
-//     }
-
-//     getBirthYear(){
-//         return this.Dob.getFullYear();
-//     }
-
-//     getFullName(){
-//         return `${this.firstName} ${this.lastName}`;
-//     }
-// }
-
-// // Instantiate object
-// const person1 = new Person('Akram', 'Nadri', '5-1-1984');
-// const person2 = new Person('Pardis', 'Honarvar', '5-1-1988');
+// Built in constructors
+const name = new String('Kevin');
+console.log(typeof name); // Shows 'Object'
+const num = new Number(5);
+console.log(typeof num); // Shows 'Object'
 
 
-// console.log(person1.getBirthYear());
-// console.log(person2.getFullName());
+// ES6 CLASSES
+class Person {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+  }
+
+  // Get Birth Year
+  getBirthYear() {
+    return this.dob.getFullYear();
+  }
+
+  // Get Full Name
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+
+const person1 = new Person('John', 'Doe', '7-8-80');
+console.log(person1.getBirthYear());
 
 
+// ELEMENT SELECTORS
+
+// Single Element Selectors
+console.log(document.getElementById('my-form'));
+console.log(document.querySelector('.container'));
+// Multiple Element Selectors
+console.log(document.querySelectorAll('.item'));
+console.log(document.getElementsByTagName('li'));
+console.log(document.getElementsByClassName('item'));
+
+const items = document.querySelectorAll('.item');
+items.forEach((item) => console.log(item));
 
 
+// MANIPULATING THE DOM
+const ul = document.querySelector('.items');
+// ul.remove();
+// ul.lastElementChild.remove();
+ul.firstElementChild.textContent = 'Hello';
+ul.children[1].innerText = 'Brad';
+ul.lastElementChild.innerHTML = '<h1>Hello</h1>';
 
-// DOM
+const btn = document.querySelector('.btn');
+// btn.style.background = 'red';
 
 
+// EVENTS
+
+// Mouse Event
+btn.addEventListener('click', e => {
+  e.preventDefault();
+  console.log(e.target.className);
+  document.getElementById('my-form').style.background = '#ccc';
+  document.querySelector('body').classList.add('bg-dark');
+  ul.lastElementChild.innerHTML = '<h1>Changed</h1>';
+});
+
+// Keyboard Event
+const nameInput = document.querySelector('#name');
+nameInput.addEventListener('input', e => {
+  document.querySelector('.container').append(nameInput.value);
+});
 
 
+// USER FORM SCRIPT
+
+// Put DOM elements into variables
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+// Listen for form submit
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+  e.preventDefault();
+  
+  if(nameInput.value === '' || emailInput.value === '') {
+    // alert('Please enter all fields');
+    msg.classList.add('error');
+    msg.innerHTML = 'Please enter all fields';
+
+    // Remove error after 3 seconds
+    setTimeout(() => msg.remove(), 3000);
+  } else {
+    // Create new list item with user
+    const li = document.createElement('li');
+
+    // Add text node with input values
+    li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
+
+    // Add HTML
+    // li.innerHTML = `<strong>${nameInput.value}</strong>e: ${emailInput.value}`;
+
+    // Append to ul
+    userList.appendChild(li);
+
+    // Clear fields
+    nameInput.value = '';
+    emailInput.value = '';
+  }
+}
