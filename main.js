@@ -189,7 +189,7 @@ if(x > 5 && y > 10){
 
 // Ternary operator - ? Than, if color = z is > 10 THAN ...
 
-const z = 11;
+const z = 10;
 const color = z >= 10 ? 'red' : 'blue';
 
 console.log(color);
@@ -225,3 +225,63 @@ const addNums2 = (num1, num2) => {
 }
 
 console.log(addNums2(6,4));
+
+
+
+// Can use => in one line without return or curly braces
+const addNums3 = (num1 = 1, num2 = 1) => num1 + num2;
+console.log(addNums3(3, 3));
+
+
+
+
+const addNums4 = num1 =>num1 + 5;
+console.log(addNums4(2));
+
+
+
+// OBJECT ORIENTED PROGRAMMING
+
+// Constructor function
+
+function Person(firstName, lastName, Dob){
+
+    // Create objects
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.Dob = new Date(Dob);
+    this.getBirthYear = function() {
+        return this.Dob.getFullYear();
+    }
+
+    this.getFullName = function(){
+        // use template literal here
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+// Using Prototype
+Person.prototype.getBirthYear = function() {
+    return this.Dob.getBirthYear();
+}
+
+Person.prototype.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`;
+
+}
+
+// Instantiate object
+
+const person1 = new Person('Akram', 'Nadri', '5-1-1984');
+const person2 = new Person('Pardis', 'Honarvar', '5-1-1988');
+
+console.log(person1);
+console.log(person2.firstName);
+console.log(person2.Dob);
+console.log(person1.getBirthYear());
+
+console.log(person1.getFullName());
+
+// Console.log Prototype
+
+console.log(person2.getFullName());
